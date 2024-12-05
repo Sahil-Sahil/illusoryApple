@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome | Illusory Apple</title>
+    <title>Illusory Apple Wiki</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
-        
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
         :root {
-            --primary-color: #2c3e50;
-            --accent-color: #e74c3c;
-            --text-color: #34495e;
-            --light-bg: #ecf0f1;
+            --primary-color: #0366d6;
+            --text-color: #24292e;
+            --border-color: #e1e4e8;
+            --bg-color: #f6f8fa;
         }
 
         * {
@@ -21,184 +21,173 @@
         }
 
         body {
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Inter', sans-serif;
             line-height: 1.6;
             color: var(--text-color);
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            min-height: 100vh;
-        }
-
-        .container {
+            padding: 20px;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 2rem;
         }
 
-        header {
-            background: rgba(255, 255, 255, 0.95);
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-            backdrop-filter: blur(5px);
-            padding: 1.5rem 0;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-        }
-
-        nav {
+        .header {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border-color);
         }
 
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: var(--primary-color);
+        .header h1 {
+            font-size: 2rem;
         }
 
-        .nav-links {
+        .header-buttons {
             display: flex;
+            gap: 1rem;
+        }
+
+        .button {
+            padding: 0.5rem 1rem;
+            background-color: var(--bg-color);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+        }
+
+        .intro {
+            margin-bottom: 2rem;
+            padding: 1rem;
+            background-color: var(--bg-color);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
         }
 
-        .nav-links a {
-            color: var(--text-color);
-            text-decoration: none;
-            font-weight: 400;
-            transition: color 0.3s ease;
+        .category-card {
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 1.5rem;
+            background-color: white;
         }
 
-        .nav-links a:hover {
-            color: var(--accent-color);
-        }
-
-        .hero {
-            height: 100vh;
+        .category-title {
             display: flex;
             align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding-top: 4rem;
-        }
-
-        .hero-content {
-            max-width: 800px;
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeInUp 1s ease forwards;
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
             color: var(--primary-color);
-            margin-bottom: 1.5rem;
-            line-height: 1.2;
+            font-size: 1.25rem;
         }
 
-        .hero p {
-            font-size: 1.2rem;
-            color: var(--text-color);
-            margin-bottom: 2rem;
+        .category-list {
+            list-style: none;
         }
 
-        .cta-button {
-            display: inline-block;
-            padding: 1rem 2rem;
-            background-color: var(--accent-color);
-            color: white;
+        .category-list li {
+            margin-bottom: 0.5rem;
+        }
+
+        .category-list a {
+            color: var(--primary-color);
             text-decoration: none;
-            border-radius: 30px;
-            font-weight: 600;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(231, 76, 60, 0.3);
-        }
-
-        .features {
-            padding: 5rem 0;
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .feature-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-5px);
-        }
-
-        @keyframes fadeInUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .category-list a:hover {
+            text-decoration: underline;
         }
 
         @media (max-width: 768px) {
-            .nav-links {
-                display: none;
+            body {
+                padding: 10px;
             }
 
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero p {
-                font-size: 1rem;
+            .grid-container {
+                grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 <body>
-    <header>
-        <nav class="container">
-            <div class="logo">Illusory Apple</div>
-           <div class="nav-links">
-                <a href="index.html">Home</a>
-                <a href="about.html">About</a>
-                <a href="portfolio.html">Portfolio</a>
-                <a href="contact.html">Contact</a>
-            </div>
-        </nav>
-    </header>
-
-    <section class="hero" id="home">
-        <div class="hero-content container">
-            <h1>Creating Digital Magic</h1>
-            <p>Welcome to a world where imagination meets innovation. We craft experiences that inspire and delight.</p>
-            <a href="#contact" class="cta-button">Get Started</a>
+    <div class="header">
+        <h1>Main Page</h1>
+        <div class="header-buttons">
+            <a href="#" class="button">EDIT SOURCE</a>
+            <a href="#" class="button">DISCUSSION</a>
         </div>
-    </section>
+    </div>
 
-    <section class="features container" id="about">
-        <div class="features-grid">
-            <div class="feature-card">
-                <h3>Creative Design</h3>
-                <p>Bringing your vision to life with stunning visuals and intuitive interfaces.</p>
-            </div>
-            <div class="feature-card">
-                <h3>Innovation</h3>
-                <p>Pushing boundaries with cutting-edge technology and creative solutions.</p>
-            </div>
-            <div class="feature-card">
-                <h3>Excellence</h3>
-                <p>Delivering quality results that exceed expectations every time.</p>
-            </div>
+    <div class="intro">
+        <p>Welcome to the Illusory Apple Wiki. This is a comprehensive database of information about various topics organized into categories.</p>
+    </div>
+
+    <div class="grid-container">
+        <div class="category-card">
+            <h2 class="category-title">📚 Characters</h2>
+            <ul class="category-list">
+                <li><a href="characters/main-characters.html">Main Characters</a></li>
+                <li><a href="characters/supporting-characters.html">Supporting Characters</a></li>
+                <li><a href="characters/antagonists.html">Antagonists</a></li>
+                <li><a href="characters/groups.html">Groups & Organizations</a></li>
+            </ul>
         </div>
-    </section>
+
+        <div class="category-card">
+            <h2 class="category-title">🌍 Setting</h2>
+            <ul class="category-list">
+                <li><a href="setting/locations.html">Locations</a></li>
+                <li><a href="setting/world-building.html">World Building</a></li>
+                <li><a href="setting/history.html">History</a></li>
+                <li><a href="setting/geography.html">Geography</a></li>
+            </ul>
+        </div>
+
+        <div class="category-card">
+            <h2 class="category-title">📖 Chapter Summaries</h2>
+            <ul class="category-list">
+                <li><a href="chapters/chapter-1.html">Chapter 1 - Introduction</a></li>
+                <li><a href="chapters/chapter-23.html">Chapter 23 - Turning Point</a></li>
+                <li><a href="chapters/chapter-40.html">Chapter 40 - Resolution</a></li>
+                <li><a href="chapters/chapter-73.html">Chapter 73 - New Beginnings</a></li>
+            </ul>
+        </div>
+
+        <div class="category-card">
+            <h2 class="category-title">📅 Events</h2>
+            <ul class="category-list">
+                <li><a href="events/timeline.html">Timeline</a></li>
+                <li><a href="events/major-events.html">Major Events</a></li>
+                <li><a href="events/battles.html">Battles</a></li>
+                <li><a href="events/ceremonies.html">Ceremonies</a></li>
+            </ul>
+        </div>
+
+        <div class="category-card">
+            <h2 class="category-title">🔮 Objects</h2>
+            <ul class="category-list">
+                <li><a href="objects/artifacts.html">Artifacts</a></li>
+                <li><a href="objects/weapons.html">Weapons</a></li>
+                <li><a href="objects/tools.html">Tools</a></li>
+                <li><a href="objects/relics.html">Relics</a></li>
+            </ul>
+        </div>
+
+        <div class="category-card">
+            <h2 class="category-title">🌿 Flora & Fauna</h2>
+            <ul class="category-list">
+                <li><a href="nature/plants.html">Plants</a></li>
+                <li><a href="nature/animals.html">Animals</a></li>
+                <li><a href="nature/creatures.html">Magical Creatures</a></li>
+                <li><a href="nature/ecosystems.html">Ecosystems</a></li>
+            </ul>
+        </div>
+    </div>
 </body>
 </html>
